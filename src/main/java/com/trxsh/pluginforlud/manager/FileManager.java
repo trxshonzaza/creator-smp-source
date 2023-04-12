@@ -68,7 +68,7 @@ public class FileManager {
                 Buff b = BuffManager.getBuffByKey(str.split("!!")[1]);
 
                 playerBuffs.add(new BuffProperty(b, id));
-                Bukkit.getConsoleSender().sendMessage(ChatColor.YELLOW + "loaded new BuffProperty -> " + id.toString() + ":" + b.key);
+                Bukkit.getConsoleSender().sendMessage(ChatColor.YELLOW + "loaded new BuffProperty -> " + id + ":" + b.key);
 
             }
 
@@ -78,7 +78,7 @@ public class FileManager {
                 Buff b = BuffManager.getBuffByKey(str.split("!~")[1]);
 
                 playerDebuffs.add(new BuffProperty(b, id));
-                Bukkit.getConsoleSender().sendMessage(ChatColor.YELLOW + "loaded new BuffProperty -> " + id.toString() + ":" + b.key);
+                Bukkit.getConsoleSender().sendMessage(ChatColor.YELLOW + "loaded new BuffProperty -> " + id + ":" + b.key);
 
             }
 

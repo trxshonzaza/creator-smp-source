@@ -87,7 +87,7 @@ public class WithdrawExecutor implements CommandExecutor {
                 ((Player)sender).playSound(((Player)sender).getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1f, .5f);
                 sender.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "Exception thrown! please contact trxsh 2.0#1988 for help with a picture of the details below:");
 
-                sender.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + e.toString());
+                sender.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + e);
 
             }
 

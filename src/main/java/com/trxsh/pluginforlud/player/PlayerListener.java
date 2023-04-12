@@ -74,7 +74,7 @@ public class PlayerListener implements Listener {
 
                 Buff buff = BuffManager.getBuffByName(item.getItemMeta().getDisplayName());
 
-                DataPlayer p = DataManager.getPlayer(((Player)e.getWhoClicked()).getUniqueId());
+                DataPlayer p = DataManager.getPlayer(e.getWhoClicked().getUniqueId());
 
                 p.addBuff(buff);
 
@@ -251,7 +251,7 @@ public class PlayerListener implements Listener {
                 e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1f, .5f);
                 e.getPlayer().sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "Exception thrown! please contact trxsh 2.0#1988 for help with a picture of the details below:");
 
-                e.getPlayer().sendMessage(ChatColor.RED + "" + ChatColor.BOLD + e.toString());
+                e.getPlayer().sendMessage(ChatColor.RED + "" + ChatColor.BOLD + e);
 
             }
 

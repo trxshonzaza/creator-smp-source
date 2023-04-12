@@ -30,7 +30,7 @@ public class DataPlayer {
         this.existingPlayer = player;
         this.name = player.getName();
 
-        this.instance = this;
+        instance = this;
 
     }
 
@@ -48,7 +48,7 @@ public class DataPlayer {
         this.name = player.getName();
         this.uuid = player.getUniqueId();
 
-        this.instance = this;
+        instance = this;
 
     }
 

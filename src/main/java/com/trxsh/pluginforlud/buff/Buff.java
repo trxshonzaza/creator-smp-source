@@ -33,7 +33,7 @@ public class Buff {
 
         ItemMeta m = stack.getItemMeta();
 
-        m.addEnchant(Enchantment.DAMAGE_UNDEAD, 10, true);
+        m.addEnchant(Enchantment.DURABILITY, 10, true);
         m.setUnbreakable(true);
 
         if(type == BuffType.BUFF)
@@ -41,9 +41,7 @@ public class Buff {
         else if(type == BuffType.NERF)
             m.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + name);
 
-        m.setLore(Arrays.asList(new String[]{
-                new String("Grants effect: " + name)
-        }));
+        m.setLore(Arrays.asList("Grants effect: " + name));
 
         stack.setItemMeta(m);
 
