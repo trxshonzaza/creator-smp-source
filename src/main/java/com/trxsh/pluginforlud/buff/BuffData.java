@@ -1,4 +1,4 @@
-package com.trxsh.pluginforlud;
+package com.trxsh.pluginforlud.buff;
 
 import com.trxsh.pluginforlud.utility.BuffType;
 import org.bukkit.potion.PotionEffect;

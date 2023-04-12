@@ -1,9 +1,9 @@
-package com.trxsh.pluginforlud;
+package com.trxsh.pluginforlud.player;
 
+import com.trxsh.pluginforlud.buff.Buff;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 

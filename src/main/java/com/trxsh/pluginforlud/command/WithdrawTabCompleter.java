@@ -1,5 +1,8 @@
-package com.trxsh.pluginforlud;
+package com.trxsh.pluginforlud.command;
 
+import com.trxsh.pluginforlud.buff.Buff;
+import com.trxsh.pluginforlud.manager.DataManager;
+import com.trxsh.pluginforlud.player.DataPlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;

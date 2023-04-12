@@ -1,4 +1,6 @@
-package com.trxsh.pluginforlud;
+package com.trxsh.pluginforlud.utility;
+
+import com.trxsh.pluginforlud.buff.Buff;
 
 import java.util.UUID;
 

@@ -1,5 +1,7 @@
-package com.trxsh.pluginforlud;
+package com.trxsh.pluginforlud.manager;
 
+import com.trxsh.pluginforlud.buff.Buff;
+import com.trxsh.pluginforlud.buff.BuffData;
 import com.trxsh.pluginforlud.utility.BuffType;
 
 import java.util.ArrayList;

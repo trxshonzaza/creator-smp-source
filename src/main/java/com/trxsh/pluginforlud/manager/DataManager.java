@@ -1,5 +1,6 @@
-package com.trxsh.pluginforlud;
+package com.trxsh.pluginforlud.manager;
 
+import com.trxsh.pluginforlud.player.DataPlayer;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;

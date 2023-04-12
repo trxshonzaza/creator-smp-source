@@ -1,5 +1,7 @@
-package com.trxsh.pluginforlud;
+package com.trxsh.pluginforlud.inventory;
 
+import com.trxsh.pluginforlud.buff.Buff;
+import com.trxsh.pluginforlud.manager.BuffManager;
 import com.trxsh.pluginforlud.utility.BuffType;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

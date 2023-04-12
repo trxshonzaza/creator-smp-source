@@ -1,5 +1,6 @@
-package com.trxsh.pluginforlud;
+package com.trxsh.pluginforlud.command;
 
+import com.trxsh.pluginforlud.inventory.SelectInventory;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

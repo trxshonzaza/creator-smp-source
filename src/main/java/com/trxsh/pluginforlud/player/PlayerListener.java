@@ -1,5 +1,10 @@
-package com.trxsh.pluginforlud;
+package com.trxsh.pluginforlud.player;
 
+import com.trxsh.pluginforlud.manager.BuffManager;
+import com.trxsh.pluginforlud.Main;
+import com.trxsh.pluginforlud.buff.Buff;
+import com.trxsh.pluginforlud.inventory.SelectInventory;
+import com.trxsh.pluginforlud.manager.DataManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -13,7 +18,6 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;

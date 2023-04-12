@@ -1,13 +1,10 @@
-package com.trxsh.pluginforlud;
+package com.trxsh.pluginforlud.manager;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.trxsh.pluginforlud.utility.BuffProperty;
+import com.trxsh.pluginforlud.buff.Buff;
+import com.trxsh.pluginforlud.player.DataPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.configuration.ConfigurationSection;
-import org.yaml.snakeyaml.Yaml;
-import org.yaml.snakeyaml.constructor.CustomClassLoaderConstructor;
 
 import java.io.*;
 import java.nio.file.Files;
