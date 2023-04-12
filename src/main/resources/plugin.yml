@@ -1,0 +1,11 @@
+name: PluginForLud
+version: '${project.version}'
+main: com.trxsh.pluginforlud.Main
+api-version: 1.19
+commands:
+  test:
+    description: test command
+    usage: /<command>
+  withdraw:
+    description: withdraws a buff
+    usage: /<command>
