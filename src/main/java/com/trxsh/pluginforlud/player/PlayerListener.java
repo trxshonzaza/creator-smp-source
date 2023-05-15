@@ -122,56 +122,68 @@ public class PlayerListener implements Listener {
             for(Buff b : killer.buffs)
                 availableBuffs.removeIf(b1 -> b.key.equalsIgnoreCase(b1.key));
 
-            List<Buff> availableDebuffs = BuffManager.getDebuffs();
+            List<Buff> availableKilledDebuffs = BuffManager.getDebuffs();
+            List<Buff> availableKillerDebuffs = BuffManager.getDebuffs();
+            List<Buff> availableGlobalDebuffs = BuffManager.getDebuffs();
 
-            for(Buff b : killed.debuffs)
-                availableDebuffs.removeIf(b1 -> b.key.equalsIgnoreCase(b1.key));
+            for(Buff b : killed.debuffs) {
 
-            for(Buff b : killer.debuffs)
-                availableDebuffs.removeIf(b1 -> b.key.equalsIgnoreCase(b1.key));
+                availableKilledDebuffs.removeIf(b1 -> !b.key.equalsIgnoreCase(b1.key));
+                availableGlobalDebuffs.removeIf(b1 -> b.key.equalsIgnoreCase(b1.key));
 
-            if(!killed.hasBuffs() && killer.hasDebuffs()) {
+            }
 
-                Buff r = availableDebuffs.get(0);
+            for(Buff b : killer.debuffs) {
 
-                killer.removeDebuff(r);
-                killed.addDebuff(r);
+                availableKillerDebuffs.removeIf(b1 -> !b.key.equalsIgnoreCase(b1.key));
+                availableGlobalDebuffs.removeIf(b1 -> b.key.equalsIgnoreCase(b1.key));
 
-                killer.existingPlayer.sendMessage("You got " + ChatColor.AQUA + "" + ChatColor.BOLD + r.name + "!");
+            }
+
+            if(killed.hasBuffs()) {
+
+                Bukkit.broadcastMessage("killed player has buffs");
+                Buff r = availableBuffs.get(0);
+                killed.removeBuff(r);
+                Bukkit.broadcastMessage("killed player removed " + r.name);
+
+                if(killer.hasDebuffs()) {
+
+                    Buff b = availableKillerDebuffs.get(0);
+                    killer.removeDebuff(b);
+                    Bukkit.broadcastMessage("killer player removed " + b.name);
+
+                    killer.existingPlayer.sendMessage("You lost " + ChatColor.RED + "" + ChatColor.BOLD + b.name + "!");
+
+                } else if(killer.hasBuffs()) {
+
+                    killer.addBuff(r);
+                    Bukkit.broadcastMessage("killer player add " + r.name);
+
+                    killer.existingPlayer.sendMessage("You got " + ChatColor.AQUA + "" + ChatColor.BOLD + r.name + "!");
+
+                }
+
                 killed.existingPlayer.sendMessage("You lost " + ChatColor.RED + "" + ChatColor.BOLD + r.name + "!");
 
             } else if(!killed.hasBuffs()) {
 
-                Buff r = availableDebuffs.get(0);
-
-                killer.removeDebuff(r);
+                Bukkit.broadcastMessage("killed player has debuffs");
+                Buff r = availableGlobalDebuffs.get(0);
                 killed.addDebuff(r);
+                Bukkit.broadcastMessage("killed player got " + r.name);
 
-                killed.existingPlayer.sendMessage("You got " + ChatColor.RED + "" + ChatColor.BOLD + r.name + "!");
+                if(killer.hasDebuffs()) {
 
-            }  else if(killed.hasBuffs() && killer.hasDebuffs()) {
+                    Buff b = availableKillerDebuffs.get(0);
+                    killer.removeDebuff(b);
+                    Bukkit.broadcastMessage("killer player removed " + b.name);
 
-                Buff b = availableBuffs.get(0);
-                Buff r = availableDebuffs.get(0);
+                    killer.existingPlayer.sendMessage("You lost " + ChatColor.RED + "" + ChatColor.BOLD + b.name + "!");
 
-                killer.removeDebuff(r);
-                killed.removeBuff(b);
+                }
 
-                killer.existingPlayer.sendMessage("You lost " + ChatColor.AQUA + "" + ChatColor.BOLD + r.name + "!");
-                killed.existingPlayer.sendMessage("You lost " + ChatColor.RED + "" + ChatColor.BOLD + b.name + "!");
-
-            } else if(killed.hasBuffs()) {
-
-                Buff b = availableBuffs.get(0);
-                Buff r = availableDebuffs.get(0);
-
-                killed.removeBuff(b);
-                killer.addBuff(b);
-
-                killer.removeDebuff(r);
-
-                killer.existingPlayer.sendMessage("You got " + ChatColor.AQUA + "" + ChatColor.BOLD + b.name + "!");
-                killed.existingPlayer.sendMessage("You lost " + ChatColor.RED + "" + ChatColor.BOLD + b.name + "!");
+                killed.existingPlayer.sendMessage("You lost " + ChatColor.RED + "" + ChatColor.BOLD + r.name + "!");
 
             }
 
