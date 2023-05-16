@@ -142,23 +142,19 @@ public class PlayerListener implements Listener {
 
             if(killed.hasBuffs()) {
 
-                Bukkit.broadcastMessage("killed player has buffs");
                 Buff r = availableBuffs.get(0);
                 killed.removeBuff(r);
-                Bukkit.broadcastMessage("killed player removed " + r.name);
 
                 if(killer.hasDebuffs()) {
 
                     Buff b = availableKillerDebuffs.get(0);
                     killer.removeDebuff(b);
-                    Bukkit.broadcastMessage("killer player removed " + b.name);
 
                     killer.existingPlayer.sendMessage("You lost " + ChatColor.RED + "" + ChatColor.BOLD + b.name + "!");
 
                 } else if(killer.hasBuffs()) {
 
                     killer.addBuff(r);
-                    Bukkit.broadcastMessage("killer player add " + r.name);
 
                     killer.existingPlayer.sendMessage("You got " + ChatColor.AQUA + "" + ChatColor.BOLD + r.name + "!");
 
@@ -168,16 +164,13 @@ public class PlayerListener implements Listener {
 
             } else if(!killed.hasBuffs()) {
 
-                Bukkit.broadcastMessage("killed player has debuffs");
                 Buff r = availableGlobalDebuffs.get(0);
                 killed.addDebuff(r);
-                Bukkit.broadcastMessage("killed player got " + r.name);
 
                 if(killer.hasDebuffs()) {
 
                     Buff b = availableKillerDebuffs.get(0);
                     killer.removeDebuff(b);
-                    Bukkit.broadcastMessage("killer player removed " + b.name);
 
                     killer.existingPlayer.sendMessage("You lost " + ChatColor.RED + "" + ChatColor.BOLD + b.name + "!");
 
