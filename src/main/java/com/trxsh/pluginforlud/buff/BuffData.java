@@ -18,12 +18,6 @@ public class BuffData {
                 1
         )));
 
-        buffData.add(new Buff(BuffType.BUFF, "health_increase", "Health Boost", new PotionEffect(
-                PotionEffectType.HEALTH_BOOST,
-                (20 * 20),
-                1
-        )));
-
         buffData.add(new Buff(BuffType.BUFF, "water_breathing", "Water Breathing", new PotionEffect(
                 PotionEffectType.WATER_BREATHING,
                 (20 * 20),
