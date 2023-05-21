@@ -17,11 +17,13 @@ public class FileManager {
 
     public static void savePlayers() throws IOException {
 
+        List<UUID> playerList = new ArrayList();
         Map<UUID, List<Buff>> playerBuffs = new HashMap<>();
         Map<UUID, List<Buff>> playerDebuffs = new HashMap<>();
 
        for(DataPlayer p : DataManager.getPlayers()) {
 
+           playerList.add(p.uuid);
            playerBuffs.put(p.uuid, p.buffs);
            playerDebuffs.put(p.uuid, p.debuffs);
 
@@ -30,6 +32,12 @@ public class FileManager {
        FileWriter w = new FileWriter(players, false);
 
        StringBuilder sb = new StringBuilder();
+
+       for(UUID id : playerList) {
+
+           sb.append(id.toString() + "~~" + separator);
+
+       }
 
        for(UUID id : playerBuffs.keySet()) {
 
@@ -57,10 +65,18 @@ public class FileManager {
 
     public static void loadPlayers() throws IOException {
 
+        List<UUID> playerList = new ArrayList();
         List<BuffProperty> playerBuffs = new ArrayList();
         List<BuffProperty> playerDebuffs = new ArrayList();
 
         for(String str : Files.readAllLines(players.toPath())) {
+
+            if(str.contains("~~")) {
+
+                UUID id = UUID.fromString(str.split("~~")[0]);
+                playerList.add(id);
+
+            }
 
             if(str.contains("!!")) {
 
@@ -84,6 +100,16 @@ public class FileManager {
 
         }
 
+        for(UUID id : playerList) {
+
+            if(!DataManager.exists(id)) {
+
+                DataManager.addPlayer(new DataPlayer(Bukkit.getOfflinePlayer(id)));
+
+            }
+
+        }
+
         for(BuffProperty b : playerBuffs) {
 
             DataPlayer p = null;
@@ -96,7 +122,6 @@ public class FileManager {
             } else {
 
                 p = DataManager.getPlayer(b.getID());
-                DataManager.addPlayer(p);
 
             }
 
@@ -116,7 +141,6 @@ public class FileManager {
             } else {
 
                 p = DataManager.getPlayer(b.getID());
-                DataManager.addPlayer(p);
 
             }
 
